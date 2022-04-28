@@ -17,7 +17,7 @@ server.get("/", (req, res)=>{
 })
 
 
-//GREETING
+//Greeting Express Application
 server.get("/greeting/:name", (req, res)=>{
     const name = req.params.name
     res.status(200).json ({
@@ -27,7 +27,14 @@ server.get("/greeting/:name", (req, res)=>{
 })
 
 
+//Tip Calculator Express Application
 
+server.get("/tip/:total/:tipPercentage", (req, res)=>{
+    const total = req.params.total
+    const tipPercentage = req.params.tipPercentage / 100
+    const tipTotal = total * tipPercentage
+    res.status(200).json({message: `Please leave a tip of $${tipTotal}`})
+})
 
 
 
